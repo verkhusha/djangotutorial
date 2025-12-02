@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розпізнавання звуку</title>
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Розпізнавання звуку</h1>
+
+        <form method="post" enctype="multipart/form-data" class="upload-form">
+            {% csrf_token %}
+            <input type="file" name="audio_file" accept="audio/*" required>
+            <button type="submit">Розпізнати</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            <h2>Результат розпізнавання</h2>
+            <p><strong>Клас:</strong> {{ result.class }}</p>
+            <p><strong>Категорія:</strong> {{ result.category }}</p>
+            <p><strong>Ймовірність:</strong> {{ result.confidence }}%</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

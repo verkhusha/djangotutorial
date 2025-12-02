@@ -1,0 +1,12 @@
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.swp
+*.egg-info/
+*.egg
+.venv/
+db.sqlite3
+.idea/
+*.mp3
+*.wav
